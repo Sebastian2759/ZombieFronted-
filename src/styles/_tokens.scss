@@ -1,0 +1,145 @@
+// ============================================================
+// DESIGN TOKENS
+// ============================================================
+// Todos los tokens se exponen como CSS custom properties en :root
+// para que los componentes los consuman directamente sin acoplar
+// estilos a valores hardcoded.
+// ============================================================
+
+:root {
+  // ----------------------------------------------------------
+  // COLOR PALETTE — Base
+  // ----------------------------------------------------------
+  --color-bg-base:          #0d1117;
+  --color-bg-surface:       #161b22;
+  --color-bg-elevated:      #1c2128;
+  --color-bg-overlay:       #21262d;
+
+  --color-border-default:   #30363d;
+  --color-border-muted:     #21262d;
+  --color-border-emphasis:  #484f58;
+
+  // ----------------------------------------------------------
+  // COLOR PALETTE — Brand / Accent
+  // ----------------------------------------------------------
+  --color-accent-primary:   #58a6ff;
+  --color-accent-danger:    #f85149;
+  --color-accent-warning:   #d29922;
+  --color-accent-success:   #3fb950;
+  --color-accent-purple:    #bc8cff;
+
+  // Variantes hover/active
+  --color-accent-primary-hover:   #79c0ff;
+  --color-accent-danger-hover:    #ff7b72;
+  --color-accent-success-hover:   #56d364;
+  --color-accent-warning-hover:   #e3b341;
+
+  // Fondos con opacidad para chips/badges
+  --color-accent-primary-bg:    rgba(88, 166, 255, 0.12);
+  --color-accent-danger-bg:     rgba(248, 81, 73,  0.12);
+  --color-accent-warning-bg:    rgba(210, 153, 34, 0.12);
+  --color-accent-success-bg:    rgba(63, 185, 80,  0.12);
+  --color-accent-purple-bg:     rgba(188, 140, 255,0.12);
+
+  // ----------------------------------------------------------
+  // COLOR PALETTE — Text
+  // ----------------------------------------------------------
+  --color-text-primary:     #e6edf3;
+  --color-text-secondary:   #8b949e;
+  --color-text-muted:       #6e7681;
+  --color-text-inverse:     #0d1117;
+  --color-text-link:        #58a6ff;
+  --color-text-danger:      #f85149;
+  --color-text-success:     #3fb950;
+  --color-text-warning:     #d29922;
+
+  // ----------------------------------------------------------
+  // SPACING SCALE (base-4)
+  // ----------------------------------------------------------
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+
+  // ----------------------------------------------------------
+  // TYPOGRAPHY
+  // ----------------------------------------------------------
+  --font-family-base:   'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono:   'JetBrains Mono', 'Fira Code', monospace;
+
+  --font-size-xs:   11px;
+  --font-size-sm:   12px;
+  --font-size-md:   14px;
+  --font-size-lg:   16px;
+  --font-size-xl:   20px;
+  --font-size-2xl:  24px;
+  --font-size-3xl:  32px;
+  --font-size-4xl:  40px;
+
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  --line-height-tight:    1.25;
+  --line-height-normal:   1.5;
+  --line-height-relaxed:  1.75;
+
+  // ----------------------------------------------------------
+  // BORDER RADIUS
+  // ----------------------------------------------------------
+  --radius-sm:    4px;
+  --radius-md:    6px;
+  --radius-lg:    8px;
+  --radius-xl:    12px;
+  --radius-2xl:   16px;
+  --radius-full:  9999px;
+
+  // ----------------------------------------------------------
+  // SHADOWS
+  // ----------------------------------------------------------
+  --shadow-sm:    0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md:    0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg:    0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-glow-primary:  0 0 16px rgba(88, 166, 255, 0.25);
+  --shadow-glow-danger:   0 0 16px rgba(248, 81, 73, 0.25);
+
+  // ----------------------------------------------------------
+  // TRANSITIONS
+  // ----------------------------------------------------------
+  --transition-fast:    100ms ease;
+  --transition-normal:  200ms ease;
+  --transition-slow:    350ms ease;
+
+  // ----------------------------------------------------------
+  // LAYOUT
+  // ----------------------------------------------------------
+  --sidebar-width:        240px;
+  --navbar-height:        60px;
+  --content-max-width:    1200px;
+}
+
+// ============================================================
+// SCSS TOKEN MAP — para uso en funciones/mixins SCSS
+// ============================================================
+$colors: (
+  'bg-base':          #0d1117,
+  'bg-surface':       #161b22,
+  'bg-elevated':      #1c2128,
+  'accent-primary':   #58a6ff,
+  'accent-danger':    #f85149,
+  'accent-warning':   #d29922,
+  'accent-success':   #3fb950,
+  'text-primary':     #e6edf3,
+  'text-secondary':   #8b949e,
+);
+
+@function token($key) {
+  @return map-get($colors, $key);
+}
